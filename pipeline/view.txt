@@ -1,0 +1,30 @@
+../gz2\images\587741\587741602572468407.jpg
+  summary: smooth_round
+
+../gz2\images\587742\587742061600833690.jpg
+  summary: smooth_inbetween
+
+../gz2\images\587739\587739115241013526.jpg
+  summary: featured_without_bar_or_spiral
+
+../gz2\images\587722\587722984440529062.jpg
+  summary: smooth_inbetween
+
+../gz2\images\587736\587736547389866123.jpg
+  summary: smooth_cigar
+
+../gz2\images\587735\587735697526096030.jpg
+  summary: smooth_inbetween
+
+../gz2\images\587736\587736543098110067.jpg
+  summary: None
+
+../gz2\images\587735\587735666390007993.jpg
+  summary: smooth_inbetween
+
+../gz2\images\588023\588023721783984286.jpg
+  summary: smooth_round
+
+../gz2\images\587736\587736946812715039.jpg
+  summary: unbarred_spiral
+
