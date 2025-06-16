@@ -9,7 +9,6 @@ import cv2
 import numpy as np
 from glob import glob
 import random
-from tqdm import tqdm
 
 # Load the catalog (this downloads ~210k galaxy images and their labels from Galaxyzoo)
 catalog, label_cols = gz2(
@@ -71,8 +70,8 @@ train_df, val_df = train_test_split(catalog, test_size=0.2, random_state=42)
 
 # Folder structure
 for split in ['train', 'val']:
-    os.makedirs(os.path.join(root_dir, split, 'images'), exist_ok=True)
-    os.makedirs(os.path.join(root_dir, split, 'labels'), exist_ok=True)
+    os.makedirs(os.path.join(root_dir, 'images', split), exist_ok=True)
+    os.makedirs(os.path.join(root_dir, 'labels', split), exist_ok=True)
 
 
 def export_to_yolo(df, split):
@@ -82,8 +81,8 @@ def export_to_yolo(df, split):
         width, height = image.size
         
         filename = os.path.basename(src_image_path)
-        dst_image_path = os.path.join(root_dir, split, 'images', filename)
-        dst_label_path = os.path.join(root_dir, split, 'labels', filename.replace('.jpg', '.txt'))
+        dst_image_path = os.path.join(root_dir, 'images', split, filename)
+        dst_label_path = os.path.join(root_dir, 'labels', split, filename.replace('.jpg', '.txt'))
         
         shutil.copyfile(src_image_path, dst_image_path)
          
@@ -97,13 +96,13 @@ def export_to_yolo(df, split):
 
 # Data augmentation segment
 
-SPLIT = 'train'  # or 'val'
-INPUT_IMAGE_DIR = f"../gz2_yolo_format/{SPLIT}/images"
-INPUT_LABEL_DIR = f"../gz2_yolo_format/{SPLIT}/labels"
+SPLIT = 'val'  # train or 'val'
+INPUT_IMAGE_DIR = f"../gz2_yolo_format/images/{SPLIT}"
+INPUT_LABEL_DIR = f"../gz2_yolo_format/labels/{SPLIT}"
 
 # Output augmented structure
-OUTPUT_IMAGE_DIR = f"dataset/augmented/{SPLIT}/images"
-OUTPUT_LABEL_DIR = f"dataset/augmented/{SPLIT}/labels"
+OUTPUT_IMAGE_DIR = f"dataset/augmented/images/{SPLIT}"
+OUTPUT_LABEL_DIR = f"dataset/augmented/labels/{SPLIT}"
 os.makedirs(OUTPUT_IMAGE_DIR, exist_ok=True)
 os.makedirs(OUTPUT_LABEL_DIR, exist_ok=True)
 
@@ -321,6 +320,6 @@ if __name__ == "__main__":
     # export_to_yolo(val_df, 'val')     # uncomment on first run
     # print("Train:", len(train_df))
     # print("Val:", len(val_df))
-    #generate_augmented_data(n=10000)
+    generate_augmented_data(n=1000) # generates n samples for training
     pass
     

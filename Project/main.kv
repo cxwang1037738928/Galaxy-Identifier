@@ -1,0 +1,35 @@
+<MainWidget>:
+    orientation: "vertical"
+    padding: 10
+    spacing: 10
+
+    Image:
+        id: display_image
+        source: ''
+        size_hint_y: 0.8
+        allow_stretch: True
+        keep_ratio: True
+
+    Label:
+        id: status_label
+        text: "Load an image to begin"
+        size_hint_y: None
+        height: "30dp"
+        color: 1, 1, 1, 1
+
+    BoxLayout:
+        size_hint_y: None
+        height: '48dp'
+        spacing: 10
+
+        Button:
+            text: "Load Image"
+            on_release: root.load_image()
+
+        Button:
+            text: "Detect Objects"
+            on_release: root.detect_objects()
+
+        Button:
+            text: "Save Image As..."
+            on_release: root.save_image()
