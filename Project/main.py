@@ -1,7 +1,6 @@
 from kivy.app import App
 from kivy.uix.boxlayout import BoxLayout
-from kivy.core.window import Window
-from tkinter import filedialog, Tk
+from tkinter import filedialog
 import cv2
 import os
 import uuid
@@ -20,7 +19,6 @@ class MainWidget(BoxLayout):
         self.result_image = None  # Holds the NumPy array of result
 
     def load_image(self):
-        Tk().withdraw()
 
         file_path = filedialog.askopenfilename(filetypes=[("Image Files", "*.jpg *.png *.jpeg")])
         if file_path:
@@ -35,17 +33,25 @@ class MainWidget(BoxLayout):
             return
 
         result = self.detector.detect(self.image_path)
-        self.result_image = result.plot()  # This is a NumPy array (BGR)
+        self.result_image = result.plot()  # This is a NumPy array (BGR) resulting from the YOLO model. 
 
         # Convert the result image to PNG in-memory
-        img_rgb = cv2.cvtColor(self.result_image, cv2.COLOR_BGR2RGB)
-        pil_image = PIL.Image.fromarray(img_rgb)
 
+        # Generates the result image dynamically so it does not get saved automatically
+
+        # Converts the BGR image from YOLO into RGB so kivy can display it
+        img_rgb = cv2.cvtColor(self.result_image, cv2.COLOR_BGR2RGB)
+        pil_image = PIL.Image.fromarray(img_rgb) # Converts the numpy array to a pil image
+
+        # Saves the image in Buffer to display, but does not save it in directory
         buffer = BytesIO()
         pil_image.save(buffer, format='PNG')
+        # Rewinds the system to beginning for kivy to read
         buffer.seek(0)
 
         # Display it in Kivy without saving to disk
+
+        # Loads the image into a kivy compatible image
         core_image = CoreImage(buffer, ext='png')
         self.ids.display_image.texture = core_image.texture
         self.ids.status_label.text = "Detection complete."
@@ -55,8 +61,11 @@ class MainWidget(BoxLayout):
 
     def save_image(self):
         if hasattr(self, "_last_result_image") and self._last_result_image is not None:
-            save_path = f"result_{uuid.uuid4().hex}.jpg"
-            cv2.imwrite(save_path, self._last_result_image)
+            # file_path = filedialog.asksaveasfile(mode='w', defaultextension='.jpg')
+            # if file_path:
+            #     self._last_result_image.save(file_path)
+            save_path = f"result_{uuid.uuid4().hex}.jpg" # Generates random string trailing name of image
+            cv2.imwrite(save_path, self._last_result_image) # saves image in the same directory as main.py
             self.ids.status_label.text = f"Image saved to {save_path}"
         else:
             self.ids.status_label.text = "No result to save."
