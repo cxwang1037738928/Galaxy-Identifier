@@ -1,0 +1,16 @@
+
+path: ../pipeline/dataset # dataset root dir (absolute or relative; if relative, it's relative to default datasets_dir)
+train: augmented/images/train # train images (relative to 'path') 4 images
+val: augmented/images/val # val images (relative to 'path') 4 images
+test: # test images (optional)
+
+# Classes 
+names:
+    0: smooth_round
+    1: unbarred_spiral
+    2: smooth_cigar
+    3: None
+    4: edge_on_disk
+    5: featured_without_bar_or_spiral
+    6: barred_spiral
+    7: smooth_inbetween
