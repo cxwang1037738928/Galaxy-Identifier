@@ -41,5 +41,8 @@ An application that uses the Ultralytics YOLO model to segment and identify gala
 
 ![](images/Processed.jpg)
 
+***WIP***
+- Implementing dockerfile
+
 
 
