@@ -35,7 +35,7 @@ An application that uses the Ultralytics YOLO model to segment and identify gala
 ***Stitched canvas composing of various images of modifed proportions***
 
 
-***Result***
+***Result on a validation image***
 
 
 
