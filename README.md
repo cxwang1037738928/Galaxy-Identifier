@@ -23,23 +23,23 @@ An application that uses the Ultralytics YOLO model to segment and identify gala
 
 ***What does a photo from the galaxy zoo dataset look like***
 
-[Images/GZ2_image.jpg]
+![](Images/GZ2_image.jpg)
 
 ***Modifed image with artificial noise***
 
-[Images/Noisy.jpg]
+![](Images/Noisy.jpg)
 
 ***Modified image with padding to implement dynamic box to image size ratio***
 
-[Images/Padded.jpg]
+![](Images/Padded.jpg)
 
 ***Stitched canvas composing of various images of modifed proportions***
 
-[Images/Stitched.jpg]
+![](Images/Stitched.jpg)
 
 ***Result on a validation image***
 
-[Images/Processed.jpg]
+![](Images/Processed.jpg)
 
 
 
