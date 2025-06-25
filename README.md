@@ -13,7 +13,8 @@ An application that uses the Ultralytics YOLO model to segment and identify gala
 - Python 3.11.9
 
 ***Running Locally***
-```git clone https://github.com/cxwang1037738928/Galaxy-Identifier.git
+```
+   git clone https://github.com/cxwang1037738928/Galaxy-Identifier.git
    cd Project
    python main.py
 ```
