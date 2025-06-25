@@ -11,7 +11,7 @@ save_epoch = 1
 plot = True
 name = "augmented_data"
 
-resume_path = "runs/detect/augmented_data/weights/last.pt"
+resume_path = "runs/detect/augmented_data2/weights/last.pt"
 model = YOLO(resume_path if os.path.exists(resume_path) else "yolo11n.yaml")
 
 if __name__ == "__main__":
