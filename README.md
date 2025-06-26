@@ -21,7 +21,7 @@ An application that uses the Ultralytics YOLO model to segment and identify gala
 
 :camera: ***Examples of augmented photos***
 
-***What does a photo from the galaxy zoo dataset look like***
+***What a photo from the galaxy zoo dataset look like***
 
 ![](images/GZ2_image.jpg)
 
