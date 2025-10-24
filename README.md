@@ -1,13 +1,13 @@
 # Overview
 An application that uses the Ultralytics YOLO model to segment and identify galaxy types, trained on augmented data from the Galaxy Zoo project.
 
-:brain: ***What this project does***
+***What this project does***
 
 - Downloads and uses the data from https://github.com/mwalmsley/galaxy-datasets?tab=readme-ov-file, extracting labels and converting them into YOLO format
 - Augments images from the Galaxy Zoo project to create artificial noise, discourage overfitting, and imitate usage scenarios.
 - Utilizing Kivy to create an interactive front end that lets users select input images and save augmented photos.
 
-:rocket: ***Getting Started***
+***Getting Started***
 
 ***Requirements***
 - Python 3.11.9
@@ -19,7 +19,7 @@ An application that uses the Ultralytics YOLO model to segment and identify gala
    python main.py
 ```
 
-:camera: ***Examples of augmented photos***
+***Examples of augmented photos***
 
 ***What a photo from the galaxy zoo dataset look like***
 
